@@ -1,0 +1,52 @@
+version: '3'
+services:
+    emp_dir_php:
+        build:
+            context: ./docker
+            dockerfile: php.Dockerfile
+        container_name: emp_dir_php
+        volumes:
+            - './apps/emp_dir:/var/www/html'
+        depends_on:
+            - mariadb
+
+    emp_dir_nginx:
+        image: nginx:latest
+        container_name: emp_dir_nginx
+        ports:
+            - '8000:80'
+        volumes:
+            - './apps/emp_dir:/var/www/html'
+            - './config/nginx:/etc/nginx/conf.d'
+        depends_on:
+            -   emp_dir_php
+
+    vacation_sched_php:
+        build:
+            context: ./docker
+            dockerfile: php.Dockerfile
+        container_name: vacation_sched_php
+        volumes:
+            - './apps/vacation_sched:/var/www/html'
+        depends_on:
+            - mariadb
+
+    vacation_sched_nginx:
+        image: nginx:latest
+        container_name: vacation_sched_nginx
+        ports:
+            - '8001:80'
+        volumes:
+            - './apps/vacation_sched:/var/www/html'
+            - './config/nginx:/etc/nginx/conf.d'
+        depends_on:
+            - vacation_sched_php
+
+    mariadb:
+        image: mariadb:10.3.9
+        container_name: mariadb
+        restart: 'on-failure'
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?err}
+        volumes:
+            - ${PWD}
