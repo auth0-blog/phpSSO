@@ -1,9 +1,7 @@
 version: '3'
 services:
     emp_dir_php:
-        build:
-            context: ./docker
-            dockerfile: php.Dockerfile
+        build: .
         container_name: emp_dir_php
         volumes:
             - './apps/emp_dir:/var/www/html'
@@ -17,14 +15,12 @@ services:
             - '8000:80'
         volumes:
             - './apps/emp_dir:/var/www/html'
-            - './config/nginx:/etc/nginx/conf.d'
+            - './config/nginx/emp_dir_nginx.conf:/etc/nginx/conf.d/default.conf'
         depends_on:
             -   emp_dir_php
 
     vacation_sched_php:
-        build:
-            context: ./docker
-            dockerfile: php.Dockerfile
+        build: .
         container_name: vacation_sched_php
         volumes:
             - './apps/vacation_sched:/var/www/html'
@@ -38,7 +34,7 @@ services:
             - '8001:80'
         volumes:
             - './apps/vacation_sched:/var/www/html'
-            - './config/nginx:/etc/nginx/conf.d'
+            - './config/nginx/vacation_sched_nginx.conf:/etc/nginx/conf.d/default.conf'
         depends_on:
             - vacation_sched_php
 
