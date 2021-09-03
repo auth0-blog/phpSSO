@@ -1,0 +1,23 @@
+CREATE TABLE departments(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) UNIQUE KEY,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE employees (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255),
+    email VARCHAR (255),
+    dept_id INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (dept_id) REFERENCES departments(id)
+);
+
+INSERT INTO departments (name) VALUES ('Accounting'), ('Engineering'), ('Sales'), ('Marketing');
+INSERT INTO employees (name, email, dept_id) VALUES
+    ('Mauro Chojrin', 'mauro.chojrin@leewayweb.com', (SELECT id FROM departments WHERE name = 'Engineering')),
+    ('Martha Kauffman', 'martha@hotmail.com', (SELECT id FROM departments WHERE name = 'Engineering')),
+    ('Johnny Bravo', 'jbravo@mycompany.com', (SELECT id FROM departments WHERE name = 'Marketing')),
+    ('Jordan Belfort', 'jbelfort@mycompany.com', (SELECT id FROM departments WHERE name = 'Sales')),
+    ('Warren Buffet', 'wbuffet@mycompany.com', (SELECT id FROM departments WHERE name = 'Accounting'))
+    ;
