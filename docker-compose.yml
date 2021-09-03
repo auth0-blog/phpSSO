@@ -41,8 +41,11 @@ services:
     mariadb:
         image: mariadb:10.3.9
         container_name: mariadb
-        restart: 'on-failure'
+        restart: 'always'
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?err}
+        env_file:
+            - .env
         volumes:
-            - ${PWD}
+            - ./mariadb/data:/var/lib/mysql
+            - ./mariadb/init:/docker-entrypoint-initdb.d/
