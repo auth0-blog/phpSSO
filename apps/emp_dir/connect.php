@@ -5,5 +5,5 @@ try {
 
     return $db;
 } catch (Exception $exception) {
-    die($exception->getMessage());
+    die('Couldn\'t connect: '.$exception->getMessage());
 }
