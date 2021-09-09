@@ -12,7 +12,7 @@ if ('post' === strtolower($_SERVER['REQUEST_METHOD'])) {
     $password = $_POST['password'];
     $sql = 'SELECT id FROM employees WHERE username = :username AND password = MD5(:password)';
 
-    $db = require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'connect.php';
+    $db = require_once __DIR__ . '/../connect.php';
 
     $st = $db->prepare($sql);
     $st->execute(
@@ -35,9 +35,9 @@ if ('post' === strtolower($_SERVER['REQUEST_METHOD'])) {
     }
 } else {
     ?>
-    <head>
-        <title>Employee's Directory App</title>
-    </head>
+        <head>
+            <title>Vacation Scheduling App</title>
+        </head>
     <h1>Login</h1>
     <form method="post">
         <label for="username">Username:</label><input name="username" type="text" id="username"

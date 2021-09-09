@@ -1,3 +1,4 @@
 .idea/*
 /mariadb/data/
 apps/emp_dir/vendor/*
+apps/vacation_sched/vendor/*

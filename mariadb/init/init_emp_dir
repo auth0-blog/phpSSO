@@ -9,24 +9,22 @@ CREATE TABLE employees (
     name VARCHAR(255),
     email VARCHAR (255),
     dept_id INT NOT NULL,
+    username VARCHAR(255),
+    password VARCHAR (255),
     PRIMARY KEY (id),
     FOREIGN KEY (dept_id) REFERENCES departments(id)
 );
 
 CREATE TABLE users (
     id INT NOT NULL AUTO_INCREMENT,
-    username VARCHAR(255),
-    password VARCHAR (255),
     PRIMARY KEY (id)
 );
 
 INSERT INTO departments (name) VALUES ('Accounting'), ('Engineering'), ('Sales'), ('Marketing');
-INSERT INTO employees (name, email, dept_id) VALUES
-    ('Mauro Chojrin', 'mauro.chojrin@leewayweb.com', (SELECT id FROM departments WHERE name = 'Engineering')),
-    ('Martha Kauffman', 'martha@hotmail.com', (SELECT id FROM departments WHERE name = 'Engineering')),
-    ('Johnny Bravo', 'jbravo@mycompany.com', (SELECT id FROM departments WHERE name = 'Marketing')),
-    ('Jordan Belfort', 'jbelfort@mycompany.com', (SELECT id FROM departments WHERE name = 'Sales')),
-    ('Warren Buffet', 'wbuffet@mycompany.com', (SELECT id FROM departments WHERE name = 'Accounting'))
+INSERT INTO employees (name, email, dept_id, username, password) VALUES
+    ('Mauro Chojrin', 'mauro.chojrin@leewayweb.com', (SELECT id FROM departments WHERE name = 'Engineering'), 'mchojrin', md5('mauro')),
+    ('Martha Kauffman', 'martha@hotmail.com', (SELECT id FROM departments WHERE name = 'Engineering'), 'mkauffman', md5('martha')),
+    ('Johnny Bravo', 'jbravo@mycompany.com', (SELECT id FROM departments WHERE name = 'Marketing'), 'jbravo', md5('jhonny')),
+    ('Jordan Belfort', 'jbelfort@mycompany.com', (SELECT id FROM departments WHERE name = 'Sales'), 'jbelfort', md5('jordan')),
+    ('Warren Buffet', 'wbuffet@mycompany.com', (SELECT id FROM departments WHERE name = 'Accounting'),'wbuffet', md5('warren'))
     ;
-
-INSERT INTO users(username, password) VALUES ('mchojrin', MD5('mypass'));

@@ -18,6 +18,9 @@ if (($st = $db->prepare($sql)) === false) {
 $st->execute();
 
 ?>
+<head>
+    <title>Employee's Directory App</title>
+</head>
 <h1>Employee's directory</h1>
 <table style="border: 1px solid black; width: 100%; border-collapse: collapse;">
     <thead>

@@ -1,0 +1,33 @@
+CREATE TABLE employees (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255),
+    email VARCHAR (255),
+    username VARCHAR(255),
+    password VARCHAR (255),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE vacations (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    employee_id INT NULL,
+    start_date DATE,
+    end_date DATE,
+    UNIQUE(employee_id)
+);
+
+INSERT INTO employees (name, email, username, password) VALUES
+    ('Mauro Chojrin', 'mauro.chojrin@leewayweb.com', 'mchojrin', md5('mauro')),
+        ('Martha Kauffman', 'martha@hotmail.com', 'mkauffman', md5('martha')),
+        ('Johnny Bravo', 'jbravo@mycompany.com', 'jbravo', md5('jhonny')),
+        ('Jordan Belfort', 'jbelfort@mycompany.com', 'jbelfort', md5('jordan')),
+        ('Warren Buffet', 'wbuffet@mycompany.com', 'wbuffet', md5('warren'))
+        ;
+
+INSERT INTO vacations(employee_id, start_date, end_date) VALUES
+    (null, '2021-01-01', '2021-01-15'),
+    (null, '2021-01-16', '2021-01-31'),
+    (null, '2021-02-01', '2021-02-14'),
+    (null, '2021-02-15', '2021-02-28'),
+    (null, '2021-03-01', '2021-03-15'),
+    (1, '2021-03-16', '2021-03-31'),
+    (2, '2021-04-01', '2021-04-15');
