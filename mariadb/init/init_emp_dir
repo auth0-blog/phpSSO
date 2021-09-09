@@ -13,6 +13,13 @@ CREATE TABLE employees (
     FOREIGN KEY (dept_id) REFERENCES departments(id)
 );
 
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255),
+    password VARCHAR (255),
+    PRIMARY KEY (id)
+);
+
 INSERT INTO departments (name) VALUES ('Accounting'), ('Engineering'), ('Sales'), ('Marketing');
 INSERT INTO employees (name, email, dept_id) VALUES
     ('Mauro Chojrin', 'mauro.chojrin@leewayweb.com', (SELECT id FROM departments WHERE name = 'Engineering')),
@@ -21,3 +28,5 @@ INSERT INTO employees (name, email, dept_id) VALUES
     ('Jordan Belfort', 'jbelfort@mycompany.com', (SELECT id FROM departments WHERE name = 'Sales')),
     ('Warren Buffet', 'wbuffet@mycompany.com', (SELECT id FROM departments WHERE name = 'Accounting'))
     ;
+
+INSERT INTO users(username, password) VALUES ('mchojrin', MD5('mypass'));

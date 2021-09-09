@@ -1,0 +1,12 @@
+{
+    "name": "mauro/emp_dir",
+    "require": {
+        "vlucas/phpdotenv": "^5.3"
+    },
+    "authors": [
+        {
+            "name": "Mauro Chojrin",
+            "email": "mauro.chojrin@leewayweb.com"
+        }
+    ]
+}

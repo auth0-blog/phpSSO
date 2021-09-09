@@ -1,2 +1,3 @@
 .idea/*
 /mariadb/data/
+apps/emp_dir/vendor/*
