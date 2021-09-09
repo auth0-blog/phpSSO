@@ -1,12 +1,15 @@
 version: '3'
 services:
     emp_dir_php:
-        build: .
+        build:
+            context: php
         container_name: emp_dir_php
         volumes:
             - './apps/emp_dir:/var/www/html'
         depends_on:
             - mariadb
+        env_file:
+            -   ./apps/emp_dir/.env
 
     emp_dir_nginx:
         image: nginx:latest
@@ -20,7 +23,8 @@ services:
             -   emp_dir_php
 
     vacation_sched_php:
-        build: .
+        build:
+            context: php
         container_name: vacation_sched_php
         volumes:
             - './apps/vacation_sched:/var/www/html'
