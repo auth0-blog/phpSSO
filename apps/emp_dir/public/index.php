@@ -7,7 +7,7 @@ if (!isUserLoggedIn()) {
     die;
 }
 
-$db = require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'connect.php';
+$db = require_once __DIR__ . '/../connect.php';
 
 $sql = "SELECT e.name, e.email, d.name as department FROM employees e INNER JOIN departments d ON d.id = e.dept_id";
 
