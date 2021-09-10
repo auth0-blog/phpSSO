@@ -15,6 +15,10 @@ services:
             - DB_NAME=${MYSQL_EMP_DIR_DB_NAME?:err}
             - DB_USER=${MYSQL_EMP_DIR_DB_USER?:err}
             - DB_PASSWORD=${MYSQL_EMP_DIR_DB_PASS?:err}
+            - AUTH0_DOMAIN=${AUTH0_DOMAIN?:err}
+            - AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID?:err}
+            - AUTH0_CLIENT_SECRET=${AUTH0_CLIENT_SECRET?:err}
+            - AUTH0_REDIRECT_URI=${AUTH0_EMP_DIR_REDIRECT_URI?:err}
         expose:
             - 9000
 
@@ -42,7 +46,10 @@ services:
             - DB_NAME=${MYSQL_VACATION_SCHED_DB_NAME?:err}
             - DB_USER=${MYSQL_VACATION_SCHED_DB_USER?:err}
             - DB_PASSWORD=${MYSQL_VACATION_SCHED_DB_PASS?:err}
-
+            - AUTH0_DOMAIN=${AUTH0_DOMAIN?:err}
+            - AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID?:err}
+            - AUTH0_CLIENT_SECRET=${AUTH0_CLIENT_SECRET?:err}
+            - AUTH0_REDIRECT_URI=${AUTH0_VACATION_SCHED_REDIRECT_URI?:err}
     vacation_sched_nginx:
         image: nginx:latest
         container_name: vacation_sched_nginx
