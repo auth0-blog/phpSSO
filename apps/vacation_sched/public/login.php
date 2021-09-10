@@ -35,10 +35,18 @@ if ('post' === strtolower($_SERVER['REQUEST_METHOD'])) {
     }
 } else {
     ?>
-        <head>
-            <title>Vacation Scheduling App</title>
-        </head>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+              crossorigin="anonymous">
+        <title>Leeway Academy's Vacation Scheduling App</title>
+    </head>
+    <div style="text-align: center">
+        <img src="img/logo.png" height="52" width="190" class="text-center"/>
+        <h1 class="text-center">Leeway Academy's Vacation Scheduling App</h1>
+    </div>
     <h1>Login</h1>
+
     <form method="post">
         <label for="username">Username:</label><input name="username" type="text" id="username"
                                                       placeholder="Enter your username"/>
