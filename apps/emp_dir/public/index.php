@@ -5,8 +5,6 @@ $auth0 = require_once '../auth0.php';
 $userInfo = $auth0->getUser();
 
 if (!$userInfo) {
-    // We have no user info
-    // See below for how to add a login link
     header('Location: login.php');
     die;
 } else {
@@ -62,6 +60,4 @@ if (!$userInfo) {
         </tbody>
     </table>
     <?php
-    // User is authenticated
-    // See below for how to display user information
 }
