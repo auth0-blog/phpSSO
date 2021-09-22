@@ -6,6 +6,7 @@ services:
         container_name: emp_dir_php
         volumes:
             - './apps/emp_dir:/var/www/html'
+            - './php/log.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
         depends_on:
             - mariadb
         environment:
@@ -37,6 +38,7 @@ services:
         container_name: vacation_sched_php
         volumes:
             - './apps/vacation_sched:/var/www/html'
+            - './php/log.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
         depends_on:
             - mariadb
         environment:
