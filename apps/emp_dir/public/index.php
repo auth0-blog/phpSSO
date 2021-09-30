@@ -1,13 +1,13 @@
 <?php
 
-$auth0 = require_once '../auth0.php';
-
-$userInfo = $auth0->getUser();
-
-if (!$userInfo) {
+session_start();
+if (!array_key_exists('uid', $_SESSION)) {
     header('Location: login.php');
     die;
 } else {
+    $auth0 = require_once '../auth0.php';
+
+    $userInfo = $auth0->getUser();
     ?>
         <head>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -35,7 +35,6 @@ if (!$userInfo) {
     }
 
     $st->execute();
-
     ?>
     <table style="border: 1px solid black; width: 100%; border-collapse: collapse;">
         <thead>

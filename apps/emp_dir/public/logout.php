@@ -1,6 +1,7 @@
 <?php
 
-// logout.php
+session_start();
+session_destroy();
 
 $auth0 = require_once '../auth0.php';
 
