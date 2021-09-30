@@ -20,6 +20,8 @@ services:
             - AUTH0_REDIRECT_URI=${AUTH0_EMP_DIR_REDIRECT_URI?:err}
         expose:
             - 9000
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
 
     emp_dir_nginx:
         image: nginx:latest
@@ -50,6 +52,9 @@ services:
             - AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID?:err}
             - AUTH0_CLIENT_SECRET=${AUTH0_CLIENT_SECRET?:err}
             - AUTH0_REDIRECT_URI=${AUTH0_VACATION_SCHED_REDIRECT_URI?:err}
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+            -
     vacation_sched_nginx:
         image: nginx:latest
         container_name: vacation_sched_nginx
