@@ -54,7 +54,6 @@ services:
             - AUTH0_REDIRECT_URI=${AUTH0_VACATION_SCHED_REDIRECT_URI?:err}
         extra_hosts:
             - "host.docker.internal:host-gateway"
-            -
     vacation_sched_nginx:
         image: nginx:latest
         container_name: vacation_sched_nginx
