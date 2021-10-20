@@ -16,7 +16,7 @@ CREATE TABLE vacations (
 );
 
 INSERT INTO employees (name, email, username, password) VALUES
-    ('Mauro Chojrin', 'mauro.chojrin@leewayitconsulting.com', 'mchojrin', md5('mauro')),
+    ('Mauro Chojrin', 'mauro.chojrin@leewayitconsulting.com', 'auth0', md5('phpsso')),
         ('Martha Kauffman', 'martha@hotmail.com', 'mkauffman', md5('martha')),
         ('Johnny Bravo', 'jbravo@mycompany.com', 'jbravo', md5('jhonny')),
         ('Jordan Belfort', 'jbelfort@mycompany.com', 'jbelfort', md5('jordan')),
