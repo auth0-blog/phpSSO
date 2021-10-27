@@ -22,7 +22,7 @@ CREATE TABLE users (
 
 INSERT INTO departments (name) VALUES ('Accounting'), ('Engineering'), ('Sales'), ('Marketing');
 INSERT INTO employees (name, email, dept_id, username, password) VALUES
-    ('Mauro Chojrin', 'mauro.chojrin@leewayitconsulting.com', (SELECT id FROM departments WHERE name = 'Engineering'), 'mchojrin', md5('mauro')),
+    ('Mauro Chojrin', 'mauro.chojrin@leewayitconsulting.com', (SELECT id FROM departments WHERE name = 'Engineering'), 'auth0', md5('phpsso')),
     ('Martha Kauffman', 'martha@hotmail.com', (SELECT id FROM departments WHERE name = 'Engineering'), 'mkauffman', md5('martha')),
     ('Johnny Bravo', 'jbravo@mycompany.com', (SELECT id FROM departments WHERE name = 'Marketing'), 'jbravo', md5('jhonny')),
     ('Jordan Belfort', 'jbelfort@mycompany.com', (SELECT id FROM departments WHERE name = 'Sales'), 'jbelfort', md5('jordan')),
