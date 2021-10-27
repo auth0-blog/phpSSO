@@ -7,8 +7,8 @@ $auth0 = require_once '../auth0.php';
 $userInfo = $auth0->getUser();
 
 if (!$userInfo) {
-
     header('Location: login.php');
+
     die;
 }
 
@@ -29,5 +29,8 @@ if ($row = $st->fetch(PDO::FETCH_ASSOC)) {
     header('Location: index.php');
 } else {
     http_response_code(403);
-    die('Error: <b>'.$userInfo['email'].'</b> is not authorized to use this application');
+    ?>
+    <p>Error: <b><?php echo $userInfo['email']; ?></b> is not authorized to use this application</p>
+    <p>Click <a href="logout.php">here</a> to try again</p>
+    <?php
 }
